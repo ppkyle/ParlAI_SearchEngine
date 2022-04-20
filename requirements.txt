@@ -10,3 +10,4 @@ parlai
 requests
 rich
 lxml
+serpapi
