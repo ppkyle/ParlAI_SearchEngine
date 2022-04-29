@@ -10,4 +10,8 @@ parlai
 requests
 rich
 lxml
-serpapi
+google-search-results
+bs4
+chardet
+fire
+html2text
