@@ -19,11 +19,12 @@ from serpapi import GoogleSearch
 import rich
 import rich.markup
 import requests
+import time
 
 print = rich.print
 
 _DEFAULT_HOST = "0.0.0.0"
-_DEFAULT_PORT = 8080
+_DEFAULT_PORT = 8081
 _DELAY_SEARCH = 1.0  # Making this too low will get you IP banned
 _STYLE_GOOD = "[green]"
 _STYLE_SKIP = ""
@@ -119,17 +120,17 @@ class SearchABC(http.server.BaseHTTPRequestHandler):
         # Over query a little bit in case we find useless URLs
         content = []
         # dupe_detection_set = set()
-        
-        results = self.search(q, n, loc)["organic_results"]
-
-        for res in results:
+        # start = time.time()
+        # results = self.search(q, n, loc)["organic_results"]
+        for res in self.search(q, n, loc)["organic_results"]:
+            # print("time cost: ", time.time() - start)
             if (len(content) >= n):
                 break
             url = res['link']
 
             maybe_content = _get_and_parse(url)
 
-                        # Check that getting the content didn't fail
+            # Check that getting the content didn't fail
             reason_empty_response = maybe_content is None
             if not reason_empty_response:
                 reason_content_empty = (
