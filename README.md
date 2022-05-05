@@ -29,11 +29,13 @@ pip install -r requirements.txt
 Run this command in one terminal tab:
 ```bash
 python search_server.py serve --host 0.0.0.0:8080
+python bing_search.py serve --host 0.0.0.0:80
 ```
 
 [Optional] You can then test the server with 
 ```
 curl -X POST "http://0.0.0.0:8080" -d "q=baseball&n=1"
+curl -X POST "http://104.250.52.201:80" -d "q=Harry Potter&n=5"
 ```
 
 Then for example start Blenderbot2 in a different terminal tab:
