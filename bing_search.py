@@ -115,7 +115,7 @@ class SearchABC(http.server.BaseHTTPRequestHandler):
         print(f"\n[bold]Received query:[/] {parsed}")
         n = int(parsed["n"])
         q = parsed["q"]
-        loc = parsed.get("cc","US")
+        loc = parsed.get("cc","HK")
 
         # Over query a little bit in case we find useless URLs
         content = []
