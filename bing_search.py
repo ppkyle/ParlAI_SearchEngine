@@ -181,7 +181,7 @@ class SearchABC(http.server.BaseHTTPRequestHandler):
         # Prepare the answer and send it
         ###############################################################
         content = content[:n]  
-        output = json.dumps(dict(response=content)).encode("utf-8")
+        output = json.dumps(dict(response=content),ensure_ascii=False).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", len(output))
