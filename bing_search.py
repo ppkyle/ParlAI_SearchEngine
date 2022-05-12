@@ -180,7 +180,11 @@ class SearchABC(http.server.BaseHTTPRequestHandler):
         ###############################################################
         # Prepare the answer and send it
         ###############################################################
-        content = content[:n]  
+        from zhconv import convert_for_mw
+        content = content[:n]
+        for c in content:
+            c["content"]= convert_for_mw(c.get("content",""),'zh-cn')
+
         output = json.dumps(dict(response=content),ensure_ascii=False).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-type", "text/html")
