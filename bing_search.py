@@ -32,7 +32,7 @@ _CLOSE_STYLE_GOOD = "[/]" if _STYLE_GOOD else ""
 _CLOSE_STYLE_SKIP = "[/]" if _STYLE_SKIP else ""
 _REQUESTS_GET_TIMEOUT = 5
 
-_SECRET_KEY = "96aa25edca2c96d6307b9f1e3ce9156d4beba7effbefe18ac6dbc9932a1cf808"
+_SECRET_KEY = "c2140c8e71582b696425f7425bfc01b8f528f115f97c6157b6f43dfcea767cb4"
 
 def _parse_host(host: str) -> Tuple[str, int]:
     """ Parse the host string. 
